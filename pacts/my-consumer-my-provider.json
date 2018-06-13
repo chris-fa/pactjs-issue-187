@@ -1,0 +1,44 @@
+{
+  "consumer": {
+    "name": "my-consumer"
+  },
+  "provider": {
+    "name": "my-provider"
+  },
+  "interactions": [
+    {
+      "description": "a users request",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/users",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "users": [
+            {
+              "id": 1,
+              "name": "John"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
